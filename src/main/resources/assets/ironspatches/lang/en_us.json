@@ -1,0 +1,10 @@
+{
+  "config.ironspatches.glitch_fixes": "Glitch Fixes",
+  "config.ironspatches.compatibility": "Compatibility",
+  "config.ironspatches.guardNonFiniteHealth": "Guard Against NaN Health",
+  "config.ironspatches.spiritBanishSafeReturn": "Spirit Banish Safe Return",
+  "config.ironspatches.spiritBanishSharedHealth": "Spirit Banish Shared Health",
+  "config.ironspatches.deathWishIgnoresKill": "Death Wish Ignores /kill",
+  "config.ironspatches.chronosphereSparesOwnSummons": "Chronosphere Spares Own Summons",
+  "config.ironspatches.iseCountsGemLevels": "ISE Counts Gem Levels"
+}

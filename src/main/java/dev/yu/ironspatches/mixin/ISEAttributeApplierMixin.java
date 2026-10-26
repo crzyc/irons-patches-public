@@ -1,7 +1,9 @@
 package dev.yu.ironspatches.mixin;
 
+import dev.yu.ironspatches.IronsPatchesConfig;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
@@ -15,6 +17,7 @@ import java.util.Map;
  * Placebo's GetEnchantmentLevelEvent, which Placebo fires from Forge's IForgeItemStack#getAllEnchantments().
  * Switching to that call is the only change; everything else in the applier is left untouched.
  * (Without Placebo installed, getAllEnchantments() returns the same map as before.)
+ * Config: compatibility.iseCountsGemLevels (off restores ISE's raw NBT read).
  */
 @Pseudo
 @Mixin(targets = "com.inolia_zaicek.irons_spells_enchantments.event.ISEAttributeApplier", remap = false)
@@ -30,6 +33,8 @@ public abstract class ISEAttributeApplierMixin {
             require = 0 // don't crash the game if a future ISE version changes this method
     )
     private static Map<Enchantment, Integer> ironspatches$withGemLevels(ItemStack stack) {
-        return stack.getAllEnchantments();
+        return IronsPatchesConfig.enabled(IronsPatchesConfig.ISE_COUNTS_GEM_LEVELS)
+                ? stack.getAllEnchantments()
+                : EnchantmentHelper.getEnchantments(stack);
     }
 }

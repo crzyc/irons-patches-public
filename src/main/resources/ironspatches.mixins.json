@@ -7,8 +7,13 @@
   "mixins": [
     "ArcaneCompatMixin",
     "BlackHoleMixin",
+    "ChronosphereFieldMixin",
+    "DeathWishMixin",
     "EntityFluidScanMixin",
-    "ISEAttributeApplierMixin"
+    "ISEAttributeApplierMixin",
+    "NonFiniteHealthMixin",
+    "PlayerAbsorptionMixin",
+    "SpiritBanishEventsMixin"
   ],
   "injectors": {
     "defaultRequire": 1
